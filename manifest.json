@@ -1,0 +1,21 @@
+{
+	"BundleType": "Application",
+	"AppIcon": {
+		"36x18": "tutorial.png"
+	},
+	"AppName": {
+		"en": "DynamicJukebox"
+	},
+	"SupportedLanguages": [
+		"en"
+	],
+	"RequiredPermissions": [
+		"http://mt1.googleapis.com/",
+		"http://web.dev:35729/",
+		"http://cdn.7static.com/",
+		"https://graph.facebook.com/",
+		"https://fbcdn-profile-a.akamaihd.net/",
+		"http://evening-fog-1336.herokuapp.com/",
+		"http://testtalserver/"
+	]
+}

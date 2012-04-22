@@ -1,0 +1,271 @@
+@import url("bootstrap.less");
+@import url("room.css");
+@cokeRed: #F40009;
+@cokeRedDark: #B40006;
+
+@font-face {
+    font-family: "Ostrich Sans";
+    src: url('ostrich-bold-webfont.eot'),
+	url('ostrich-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('ostrich-bold-webfont.woff') format('woff'),
+    url('ostrich-bold-webfont.ttf') format('truetype'),
+    url('ostrich-bold-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	margin:0;
+	padding:0;
+	background:#ffffff !important;
+	overflow: hidden;
+}
+h1 {
+	color: @cokeRedDark;
+}
+
+.frontpageBack { 
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left:0;
+	z-index:1;
+}
+
+#frontpageMap {
+	width: 100%;
+	height: 100%; 
+	-webkit-transform: rotate(-15deg);
+	-webkit-transition: -webkit-transform 0.5s ease-in;
+	
+	//-webkit-transform: translate3d(100% ,0%, 0%);
+	
+	.leaflet-marker-icon {
+	//	-webkit-transform: rotate(15deg);
+	}
+	
+}
+
+.mainContainer {
+	position: absolute;
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	
+}
+
+header {
+	#gradient > .vertical(@cokeRed,@cokeRedDark);
+	height: 55px;
+	.box-shadow(0 5px 5px rgba(0,0,0,.25));
+	position:relative;
+	z-index:10;
+	h1 {
+		width: 281px;
+		height:71px;
+		background: url(../../_img/header.png) no-repeat;
+		overflow: hidden;
+		text-indent: -1000px;
+		top:0;
+		left: 20px;
+		position: absolute;
+	}
+	
+	#tagline {
+		width: 294px;
+		height: 21px;
+		background: url(../../_img/tagline.png) no-repeat;
+		position: absolute;
+		top: 25px;
+		left: 320px;
+	}
+	
+	#bottle {
+		width:51px;
+		height: 128px;
+		position: absolute;
+		background: url(../../_img/cokebottle.png) no-repeat;
+		right: 20px;
+		top: 4px;
+		z-index:4;
+	}
+}
+
+.centerbody {
+	width: 860px;
+	margin: 0px auto;
+	margin-top: 20px;
+}
+
+#listenSearch {
+	position: absolute;
+	left: 30px;
+	top: 130px;
+	width: 440px;
+	display:none;
+	h1 {
+		margin-bottom:10px;
+	}
+	-webkit-transition: -webkit-transform 0.5s ease-in;
+	
+}
+
+.bigtext {
+	font-size: 20px;
+	height: 25px;
+	padding: 6px;
+	width: 440px;
+}
+
+h3 {
+	color: @cokeRedDark;
+	margin-bottom: 5px;
+}
+
+h4.loctitle {
+	font-size: 16px;
+	span {
+		font-weight: normal;
+	}
+}
+
+#olTrending, #olSearch {
+	list-style: none;
+	margin:0px;
+	border-top: solid 1px #cccccc;
+	position: relative;
+	width: 460px;
+	overflow: auto;
+	height: 300px;
+	li {
+		margin:0px;
+		height: 52px;
+		//margin-bottom: 5px;
+		background: rgba(255,255,255,0.5);
+		padding: 6px 3px;
+		cursor: pointer;
+		border-bottom: solid 1px #cccccc;
+		width:535px;
+		h4, p {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space:nowrap;
+			padding-right: 10px;
+		}
+	}
+	li:hover {
+		background: rgba(241,0,8,0.8);
+		color: #ffffff;
+	}
+	
+	.numpeople {
+		text-transform: uppercase;
+		margin-top:8px;
+		
+		img {
+			width: 20px;
+			height: 20px;
+			border: solid 1px #cccccc;
+			display:block;
+			float:left;
+			margin-right: 3px;
+		}
+		
+		p {
+			float:left;
+			width: 80px;
+			font-size:11px; 
+			padding-top: 2px;
+		}
+	}
+}
+
+#olSearch li {
+	h4, p {
+		padding-left: 10px;
+	}
+	height: 38px;
+}
+
+#listenSearch .albumart {
+	width: 50px;
+	height: 50px;
+	float:left;
+	border: solid 1px #cccccc;
+	margin-right: 10px;
+	
+	img {
+		float:left;
+		width: 25px;
+		height: 25px;
+	}
+}
+
+#roomdetails {
+	position: absolute;
+	right: -427px;
+	height: 100%;
+	background: rgba(0,0,0,0.5);//url("../../_img/ajax-loader.gif") no-repeat center center;
+	width:400px;
+	z-index:3;
+	top:55px;
+	//-webkit-transition: right 0.5s ease-in;
+	-webkit-transform: translate3d(100% ,0%, 0%);
+  
+	h1 {
+		padding-top: 220px;
+		font-size: 36px;
+		color:#ffffff;
+		margin-bottom: 20px;
+	}
+	div.inner {
+		position: relative;
+		height: 100%;
+		padding-left: 20px;
+	}
+	.blackarrow {
+		width: 27px;
+		height: 135px;
+		background: url("../../_img/blackarrow.png") no-repeat;
+		position: absolute;
+		top:50%;
+		margin-top: -67px;
+		left: -27px;
+	}
+	
+	.roomart {
+		position: absolute;
+		top:0;
+		left:0;
+		
+		div.art {
+			width: 100px;
+			height:100px;
+			float:left;
+			background-repeat: no-repeat;
+			z-index:3;
+		}
+		
+		div.cover {
+			background: rgba(0,0,0,0.6);
+			width: 500px;
+			height: 200px;
+			position: absolute;
+			top:0;
+			left:0;
+			z-index:4;
+		}
+		
+		
+		
+	}
+	
+	button {
+		font-size: 16px;
+		padding:8px 20px 8px
+	}
+	
+	color:#ffffff;
+}

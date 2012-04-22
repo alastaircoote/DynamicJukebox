@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>PlaceLists</title>
+	<!--<link rel="stylesheet" href="sp://import/css/adam.css">-->
+	<link rel="stylesheet" href="_css/bootstrap.min.css">
+	<link rel="stylesheet" href="leaflet/leaflet.css">
+	<link rel="stylesheet" href="_css/compiled/base.css">
+	<link rel="stylesheet" href="_libs/tipsy.css">
+</head>
+<body>
+	<div class="frontpageBack">
+		<div id="frontpageMap"></div>
+	</div>
+	<div class="mainContainer">
+		<div class="containinner">
+		<header>
+			<h1>PlaceLists</h1>
+			<div id="tagline"></div>
+			<div id="bottle"></div>
+		</header>
+		<div id="listenSearch">
+		
+			<!--<img src="_img/wherelistenheader.png" style="width: 562px; height: 43px; margin-bottom: 20px; display:block"/>-->
+			<h1>Where do you want to listen?</h1>
+			<input type="text" class="bigtext" style="display:block" id="txtLocation"/>
+			<div id='divTrending'>
+			<h3>Trending right now:</h3>
+			<ol id="olTrending">
+			</ol>
+			</div>
+			<div id="divSearch">
+				<ol id="olSearch">
+				</ol>
+			</div>	
+		</div>
+		<div id="roomdetails">
+			<div class="inner">
+				<div class="roomart">
+					<div class="cover"></div>
+				</div>
+				<div class='blackarrow'></div>
+				<h1></h1>
+				<button id="btnJoinRoom" class="btn btn-danger">Join Room</button>
+				<button id="btnBack" class="btn ">Back</button>
+			</div>
+		</div>
+		</div>
+		
+		<div id="room">
+			<h1 class="name" id='h1rmname'></h1>
+			<div class="albumart">
+				<div class="artcover"></div>
+			</div>
+			<div id="playinfo">
+				<div class="currentart"></div>
+				<h4>Now playing</h4>
+				<h3></h3>
+				<p class="artist"></p>
+			
+			</div>
+			<div id="occupants">
+				<h4>Who's here?</h4>
+				<ul>
+				</ul>
+			</div>
+		</div>
+		
+		
+	</div>
+	<script type="text/javascript" src="_libs/jq.js"></script>
+	<script type="text/javascript" src="_libs/cookie.js"></script>
+	<script type="text/javascript" src="_libs/jquery.tipsy.js"></script>
+	
+	<script type="text/javascript" src="leaflet/leaflet.js"></script>
+	<script type="text/javascript" src="_js/compiled/maps.js"></script>
+	<script type="text/javascript" src="_js/compiled/facebook.js"></script>
+	<script type="text/javascript" src="_js/compiled/frontpage.js"></script>
+	<script type="text/javascript" src="_js/compiled/room.js"></script>
+	
+	<script>
+		
+		window.baseUrl = "http://evening-fog-1336.herokuapp.com/"
+		fBook = new Facebook()
+		window.fbInitFuncs.push(function() {
+			new FrontPage()
+			
+			//new Room()
+		})
+			
+	</script>
+	<script>document.write('<script src="http://web.dev:35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>

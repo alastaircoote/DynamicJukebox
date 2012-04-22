@@ -1,0 +1,487 @@
+@import url("room.css");
+/*
+  Bootstrap v1.1
+  Variables and mixins to bootstrap any new web development project.
+*/
+/* Variables
+-------------------------------------------------- */
+/* Mixins
+-------------------------------------------------- */
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+.center-block {
+  display: block;
+  margin: 0 auto;
+}
+.container {
+  width: 940px;
+  margin: 0 auto;
+  zoom: 1;
+}
+.container:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+#flexbox .display-box {
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+}
+#reset .global-reset html,
+#reset .global-reset body,
+#reset .global-reset div,
+#reset .global-reset span,
+#reset .global-reset applet,
+#reset .global-reset object,
+#reset .global-reset iframe,
+#reset .global-reset h1,
+#reset .global-reset h2,
+#reset .global-reset h3,
+#reset .global-reset h4,
+#reset .global-reset h5,
+#reset .global-reset h6,
+#reset .global-reset p,
+#reset .global-reset blockquote,
+#reset .global-reset pre,
+#reset .global-reset a,
+#reset .global-reset abbr,
+#reset .global-reset acronym,
+#reset .global-reset address,
+#reset .global-reset big,
+#reset .global-reset cite,
+#reset .global-reset code,
+#reset .global-reset del,
+#reset .global-reset dfn,
+#reset .global-reset em,
+#reset .global-reset img,
+#reset .global-reset ins,
+#reset .global-reset kbd,
+#reset .global-reset q,
+#reset .global-reset s,
+#reset .global-reset samp,
+#reset .global-reset small,
+#reset .global-reset strike,
+#reset .global-reset strong,
+#reset .global-reset sub,
+#reset .global-reset sup,
+#reset .global-reset tt,
+#reset .global-reset var,
+#reset .global-reset b,
+#reset .global-reset u,
+#reset .global-reset i,
+#reset .global-reset center,
+#reset .global-reset dl,
+#reset .global-reset dt,
+#reset .global-reset dd,
+#reset .global-reset ol,
+#reset .global-reset ul,
+#reset .global-reset li,
+#reset .global-reset fieldset,
+#reset .global-reset form,
+#reset .global-reset label,
+#reset .global-reset legend,
+#reset .global-reset table,
+#reset .global-reset caption,
+#reset .global-reset tbody,
+#reset .global-reset tfoot,
+#reset .global-reset thead,
+#reset .global-reset tr,
+#reset .global-reset th,
+#reset .global-reset td,
+#reset .global-reset article,
+#reset .global-reset aside,
+#reset .global-reset canvas,
+#reset .global-reset details,
+#reset .global-reset embed,
+#reset .global-reset figure,
+#reset .global-reset figcaption,
+#reset .global-reset footer,
+#reset .global-reset header,
+#reset .global-reset hgroup,
+#reset .global-reset menu,
+#reset .global-reset nav,
+#reset .global-reset output,
+#reset .global-reset ruby,
+#reset .global-reset section,
+#reset .global-reset summary,
+#reset .global-reset time,
+#reset .global-reset mark,
+#reset .global-reset audio,
+#reset .global-reset video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+#reset .global-reset body {
+  line-height: 1;
+}
+#reset .global-reset ol,
+#reset .global-reset ul {
+  list-style: none;
+}
+#reset .global-reset table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#reset .global-reset caption,
+#reset .global-reset th,
+#reset .global-reset td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+#reset .global-reset q,
+#reset .global-reset blockquote {
+  quotes: none;
+}
+#reset .global-reset q:before,
+#reset .global-reset blockquote:before,
+#reset .global-reset q:after,
+#reset .global-reset blockquote:after {
+  content: "";
+  content: none;
+}
+#reset .global-reset a img {
+  border: none;
+}
+#reset .global-reset article,
+#reset .global-reset aside,
+#reset .global-reset details,
+#reset .global-reset figcaption,
+#reset .global-reset figure,
+#reset .global-reset footer,
+#reset .global-reset header,
+#reset .global-reset hgroup,
+#reset .global-reset menu,
+#reset .global-reset nav,
+#reset .global-reset section {
+  display: block;
+}
+#reset .reset-box-model {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#reset .reset-font {
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+#reset .reset-focus {
+  outline: 0;
+}
+#reset .reset-body {
+  line-height: 1;
+}
+#reset .reset-list-style {
+  list-style: none;
+}
+#reset .reset-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#reset .reset-table-cell {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+#reset .reset-quotation {
+  quotes: none;
+}
+#reset .reset-quotation:before,
+#reset .reset-quotation:after {
+  content: "";
+  content: none;
+}
+#reset .reset-image-anchor-border {
+  border: none;
+}
+#reset .reset-html5 article,
+#reset .reset-html5 aside,
+#reset .reset-html5 details,
+#reset .reset-html5 figcaption,
+#reset .reset-html5 figure,
+#reset .reset-html5 footer,
+#reset .reset-html5 header,
+#reset .reset-html5 hgroup,
+#reset .reset-html5 menu,
+#reset .reset-html5 nav,
+#reset .reset-html5 section {
+  display: block;
+}
+@font-face {
+  font-family: "Ostrich Sans";
+  src: url('ostrich-bold-webfont.eot'), url('ostrich-bold-webfont.eot?#iefix') format('embedded-opentype'), url('ostrich-bold-webfont.woff') format('woff'), url('ostrich-bold-webfont.ttf') format('truetype'), url('ostrich-bold-webfont.svg#LeagueGothicRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff !important;
+  overflow: hidden;
+}
+h1 {
+  color: #b40006;
+}
+.frontpageBack {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+#frontpageMap {
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotate(-15deg);
+  -webkit-transition: -webkit-transform 0.5s ease-in;
+}
+.mainContainer {
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+header {
+  background-color: #b40006;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#f40009), to(#b40006));
+  /* Konqueror */
+
+  background-image: -moz-linear-gradient(#f40009, #b40006);
+  /* FF 3.6+ */
+
+  background-image: -ms-linear-gradient(#f40009, #b40006);
+  /* IE10 */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f40009), color-stop(100%, #b40006));
+  /* Safari 4+, Chrome 2+ */
+
+  background-image: -webkit-linear-gradient(#f40009, #b40006);
+  /* Safari 5.1+, Chrome 10+ */
+
+  background-image: -o-linear-gradient(#f40009, #b40006);
+  /* Opera 11.10 */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f40009', endColorstr='#b40006', GradientType=0);
+  /* IE6 & IE7 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#f40009', endColorstr='#b40006', GradientType=0)";
+  /* IE8+ */
+
+  background-image: linear-gradient(#f40009, #b40006);
+  /* the standard */
+
+  height: 55px;
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 10;
+}
+header h1 {
+  width: 281px;
+  height: 71px;
+  background: url(../../_img/header.png) no-repeat;
+  overflow: hidden;
+  text-indent: -1000px;
+  top: 0;
+  left: 20px;
+  position: absolute;
+}
+header #tagline {
+  width: 294px;
+  height: 21px;
+  background: url(../../_img/tagline.png) no-repeat;
+  position: absolute;
+  top: 25px;
+  left: 320px;
+}
+header #bottle {
+  width: 51px;
+  height: 128px;
+  position: absolute;
+  background: url(../../_img/cokebottle.png) no-repeat;
+  right: 20px;
+  top: 4px;
+  z-index: 4;
+}
+.centerbody {
+  width: 860px;
+  margin: 0px auto;
+  margin-top: 20px;
+}
+#listenSearch {
+  position: absolute;
+  left: 30px;
+  top: 130px;
+  width: 440px;
+  display: none;
+  -webkit-transition: -webkit-transform 0.5s ease-in;
+}
+#listenSearch h1 {
+  margin-bottom: 10px;
+}
+.bigtext {
+  font-size: 20px;
+  height: 25px;
+  padding: 6px;
+  width: 440px;
+}
+h3 {
+  color: #b40006;
+  margin-bottom: 5px;
+}
+h4.loctitle {
+  font-size: 16px;
+}
+h4.loctitle span {
+  font-weight: normal;
+}
+#olTrending,
+#olSearch {
+  list-style: none;
+  margin: 0px;
+  border-top: solid 1px #cccccc;
+  position: relative;
+  width: 460px;
+  overflow: auto;
+  height: 300px;
+}
+#olTrending li,
+#olSearch li {
+  margin: 0px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 6px 3px;
+  cursor: pointer;
+  border-bottom: solid 1px #cccccc;
+  width: 535px;
+}
+#olTrending li h4,
+#olSearch li h4,
+#olTrending li p,
+#olSearch li p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 10px;
+}
+#olTrending li:hover,
+#olSearch li:hover {
+  background: rgba(241, 0, 8, 0.8);
+  color: #ffffff;
+}
+#olTrending .numpeople,
+#olSearch .numpeople {
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+#olTrending .numpeople img,
+#olSearch .numpeople img {
+  width: 20px;
+  height: 20px;
+  border: solid 1px #cccccc;
+  display: block;
+  float: left;
+  margin-right: 3px;
+}
+#olTrending .numpeople p,
+#olSearch .numpeople p {
+  float: left;
+  width: 80px;
+  font-size: 11px;
+  padding-top: 2px;
+}
+#olSearch li {
+  height: 38px;
+}
+#olSearch li h4,
+#olSearch li p {
+  padding-left: 10px;
+}
+#listenSearch .albumart {
+  width: 50px;
+  height: 50px;
+  float: left;
+  border: solid 1px #cccccc;
+  margin-right: 10px;
+}
+#listenSearch .albumart img {
+  float: left;
+  width: 25px;
+  height: 25px;
+}
+#roomdetails {
+  position: absolute;
+  right: -427px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  width: 400px;
+  z-index: 3;
+  top: 55px;
+  -webkit-transform: translate3d(100%, 0%, 0%);
+  color: #ffffff;
+}
+#roomdetails h1 {
+  padding-top: 220px;
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+#roomdetails div.inner {
+  position: relative;
+  height: 100%;
+  padding-left: 20px;
+}
+#roomdetails .blackarrow {
+  width: 27px;
+  height: 135px;
+  background: url("../../_img/blackarrow.png") no-repeat;
+  position: absolute;
+  top: 50%;
+  margin-top: -67px;
+  left: -27px;
+}
+#roomdetails .roomart {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#roomdetails .roomart div.art {
+  width: 100px;
+  height: 100px;
+  float: left;
+  background-repeat: no-repeat;
+  z-index: 3;
+}
+#roomdetails .roomart div.cover {
+  background: rgba(0, 0, 0, 0.6);
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+#roomdetails button {
+  font-size: 16px;
+  padding: 8px 20px 8px;
+}
