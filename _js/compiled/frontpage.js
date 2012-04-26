@@ -166,7 +166,7 @@
             return self.locationClicked(this);
           });
           $("#btnJoinRoom").click(function() {
-            return self.joinRoom(_this.currentRoom.id);
+            return self.joinRoom(_this.currentRoom);
           });
           $("#btnBack").click(_this.backClicked);
           $(window).bind("resize", _this.onResize);
@@ -271,9 +271,18 @@
       return retFunc(this.savedLocations[locid]);
     };
 
-    frontPage.prototype.joinRoom = function(roomid, instant) {
-      var _this = this;
-      $.getJSON(baseUrl + "room/join.json?room_id=" + roomid + "&user[fb_id]=" + fBook.userData.id, null, function(ret) {
+    frontPage.prototype.joinRoom = function(room, instant) {
+      var data,
+        _this = this;
+      data = {
+        'user[fb_id]': fBook.userData.id
+      };
+      if (room.id) {
+        data.room_id = room.id;
+      } else {
+        data.fb_id = room.fb_id;
+      }
+      $.getJSON(baseUrl + "room/join.json", data, function(ret) {
         console.log(ret);
         if (instant) {
           return new Room(ret);

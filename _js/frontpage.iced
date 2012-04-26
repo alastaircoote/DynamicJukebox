@@ -41,15 +41,15 @@ class frontPage
 					lat: data.location.latitude
 					lng: data.location.longitude
 		doLocation()
-		
+
 		$("#olSearch, #olTrending").delegate "li", "click", () ->
 			self.locationClicked this
-		
+
 		$("#btnJoinRoom").click ()=>
-			self.joinRoom this.currentRoom.id
-		
+			self.joinRoom this.currentRoom
+
 		$("#btnBack").click this.backClicked
-		
+
 		$(window).bind "resize", this.onResize
 		this.onResize()
 	onResize: () ->
@@ -72,15 +72,15 @@ class frontPage
 				if this.lastDateDisplayed && this.lastDateDisplayed > dateSent
 					return
 				this.lastDateDisplayed = dateSent
-		
+
 				this.setSearchLocations data.rooms
 				nameArray = for loc in data.rooms
 					if !this.savedLocations[loc.fb_id]
 						this.savedLocations[loc.fb_id] = loc
 					loc
 		if this.currentKeyTimer
-			clearTimeout(this.currentKeyTimer)			
-		this.currentKeyTimer = setTimeout () ->			
+			clearTimeout(this.currentKeyTimer)
+		this.currentKeyTimer = setTimeout () ->
 			$.getJSON searchUrl,null,completeFunc(rightNow)
 		, 500
 	backClicked:() =>
@@ -117,20 +117,26 @@ class frontPage
 			for i in [0..7]
 				art = getRandomArtwork().replace("_200","_100")
 				divs.push "<div class='art' style='background-image:url(#{art})'/>"
-				
+
 			$("#roomdetails .roomart").append(divs.join(""))
 			$("#roomdetails h1").html(data.name)
-			
+
 		$("#roomdetails").css "right", 0
-		
-		
-		
+
+
+
 	downloadRoom: (locid, retFunc) =>
-		
+
 		retFunc(this.savedLocations[locid])
-		
-	joinRoom: (roomid,instant) ->
-		$.getJSON baseUrl + "room/join.json?room_id=" + roomid + "&user[fb_id]=" + fBook.userData.id, null, (ret) =>
+
+	joinRoom: (room,instant) ->
+		data = {'user[fb_id]': fBook.userData.id}
+		if room.id
+			data.room_id = room.id
+		else
+			data.fb_id = room.fb_id
+
+		$.getJSON baseUrl + "room/join.json", data, (ret) =>
 			console.log ret
 			if instant
 				new Room(ret)
